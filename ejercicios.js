@@ -1,51 +1,137 @@
 
-function formatearNombre(nombre){
+function formatearNombre() {
+  const nombre = document.getElementById("nombreInput").value;
 
-    console.log(nombre[0].toUpperCase() + nombre.slice(1).toLowerCase()) 
+  if (nombre.length > 0) {
+    const nombreFormateado =
+      nombre[0].toUpperCase() + nombre.slice(1).toLowerCase();
+
+    document.getElementById("resultado").textContent = nombreFormateado;
+  } else {
+    document.getElementById("resultado").textContent = "Ingresá un nombre";
+  }
 }
 
-function contarLetras(texto) {
+function contarLetras() {
+  const texto = document.getElementById("textoInput").value;
 
-    console.log(texto.replaceAll(" ", "").length)
+  if (texto.length > 0) {
+    const cantidad = texto.replaceAll(" ", "").length;
+
+    document.getElementById("resultado").textContent =
+      "Cantidad de letras: " + cantidad;
+  } else {
+    document.getElementById("resultado").textContent =
+      "Ingresá un texto";
+  }
 }
 
-function maximo(a, b, c){
+function maximo() {
+  const a = Number(document.getElementById("num1").value);
+  const b = Number(document.getElementById("num2").value);
+  const c = Number(document.getElementById("num3").value);
 
-    console.log([a, b, c].reduce((max,num) => num>max ? num: max))
+  if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+    const mayor = [a, b, c].reduce((max, num) => num > max ? num : max);
+
+    document.getElementById("resultado").textContent =
+      "El número mayor es: " + mayor;
+  } else {
+    document.getElementById("resultado").textContent =
+      "Ingresá los tres números";
+  }
 }
 
-function validarPassword(password) {
-  console.log(password.length >= 8 && /\d/.test(password));
+function validarPassword() {
+  const password = document.getElementById("passwordInput").value;
+
+  if (password.length > 0) {
+   
+    const esValida = password.length >= 8 && /\d/.test(password);
+
+    document.getElementById("resultado").textContent =
+      esValida ? "Contraseña válida " : "Contraseña inválida ";
+  } else {
+    document.getElementById("resultado").textContent =
+      "Ingresá una contraseña";
+  }
 }
 
+function sumarArray() {
+  const input = document.getElementById("numerosInput").value;
 
-function sumarArray(numeros) {
+  if (input.length > 0) {
+
+    const numeros = input.split(",").map(num => Number(num.trim()));
+
     let suma = 0;
     for (let numero of numeros) {
-        suma = suma + numero;
+      suma += numero;
     }
-    console.log(suma);
+
+    document.getElementById("resultado").textContent =
+      "La suma es: " + suma;
+  } else {
+    document.getElementById("resultado").textContent =
+      "Ingresá algunos números";
+  }
 }
 
+function mayorNumero() {
+  const input = document.getElementById("numerosInput1").value;
 
-function mayorNumero(numeros){
-    console.log(Math.max(...numeros));
+  if (input.length > 0) {
+    
+    const numeros = input.split(",").map(num => Number(num.trim()));
+
+    const mayor = Math.max(...numeros);
+
+    document.getElementById("resultado").textContent =
+      "El número mayor es: " + mayor;
+  } else {
+    document.getElementById("resultado").textContent =
+      "Ingresá algunos números";
+  }
+} 
+
+
+function obtenerPares() {
+  const input = document.getElementById("numerosInput2").value;
+  if (!input) return alert("Ingresá algunos números");
+
+  const pares = input
+    .split(",")
+    .map(n => parseInt(n))      
+    .filter(n => !isNaN(n) && n % 2 === 0);
+
+  document.getElementById("resultado").textContent =
+    pares.length ? "Números pares: " + pares.join(", ") : "No hay números pares";
 }
 
+function descripcionUsuario() {
+  const usuario = {
+    nombre: document.getElementById("nombreInput1").value,
+    edad: Number(document.getElementById("edadInput").value),
+    activo: document.getElementById("activoInput").value === "true"
+  }
 
-function obtenerPares(numeros) {
-console.log(numeros.filter(num => num % 2 === 0)) 
+  document.getElementById("resultado").textContent =
+    `${usuario.nombre} tiene ${usuario.edad} años`;
 }
 
+function activarUsuario() {//NO FUNCIONA
+  
+  const usuario = {
+    nombre: document.getElementById("nombreInput2").value,
+    edad: Number(document.getElementById("edadInput2").value),
+    activo: document.getElementById("activoInput1").value === "true"
+  };
 
-function descripcionUsuario(usuario) {
-console.log(`${usuario.nombre} tiene ${usuario.edad} años`);
-}
+  usuario.activo = true;
 
-function activarUsuario(usuario) {
-    usuario.activo = true;
-    console.log(`${usuario.nombre} ahora está activo: ${usuario.activo}`);
-}
+  document.getElementById("resultado").textContent =
+    `${usuario.nombre} ahora está activo: ${usuario.activo}`;
+} 
 
 function precioTotal(productos) {
     let total = 0;
@@ -84,15 +170,22 @@ const total = usuarios.reduce((acumulador, u) => acumulador + u.edad, 0);
 console.log(total);
 }
 
+function mostrarProducto(producto) {
+    const { nombre, precio } = producto;
+    console.log(`Producto: ${nombre}, Precio: ${precio}`);
+}
 
-14
+mostrarProducto({ nombre: "Notebook", precio: 1000 });
+
+function copiarProductoConStock(producto) {
+ 
+    const nuevoProducto = { ...producto, stock: 5 };
+    console.log(nuevoProducto);
+}
+copiarProductoConStock({ nombre: "Notebook", precio: 1000 });
 
 
-15
 
-
-
-16 
 function buscarProducto(productos, nombre) {
 return productos.find(p => p.nombre === nombre);
 }
