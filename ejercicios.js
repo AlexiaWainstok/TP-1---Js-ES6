@@ -164,15 +164,9 @@ const usuarios = [
 { nombre: "Pedro", edad: 30 }
 ]
 
-
 function mostrarNombres() {
-console.log(usuarios.map(u => u.nombre))
-}
-
-function mostrarNombres() {
-  const nombres = usuarios.map(u => u.nombre);
-
-    document.getElementById("resultado").textContent = nombres;
+const nombres = usuarios.map(u => u.nombre);
+  document.getElementById("resultado").innerText = nombres.join(", ");
 }
 
 
@@ -181,29 +175,27 @@ function mayorDeEdad() {
     .filter(u => u.edad >= 18)
     .map(u => u.nombre);
 
-  console.log(mayores);
+  document.getElementById("resultado").innerText = mayores.join(", ");
 }
 
 function sumaEdades() {
 const total = usuarios.reduce((acumulador, u) => acumulador + u.edad, 0);
 
-console.log(total);
+  document.getElementById("resultado").innerText = total;
 }
 
 function mostrarProducto(producto) {
     const { nombre, precio } = producto;
-    console.log(`Producto: ${nombre}, Precio: ${precio}`);
+      document.getElementById("resultado").innerText =
+      `Producto: ${nombre}, Precio: ${precio}`;
 }
-
-mostrarProducto({ nombre: "Notebook", precio: 1000 });
 
 function copiarProductoConStock(producto) {
- 
     const nuevoProducto = { ...producto, stock: 5 };
-    console.log(nuevoProducto);
-}
-copiarProductoConStock({ nombre: "Notebook", precio: 1000 });
 
+    document.getElementById("resultado").innerText =
+        `Producto: ${nuevoProducto.nombre}, Precio: ${nuevoProducto.precio}, Stock: ${nuevoProducto.stock}`;
+}
 
 
 function buscarProducto(productosEjemplo, nombre) {
@@ -219,6 +211,7 @@ const productosEjemplo = [
 console.log(buscarProducto(productosEjemplo, "Teclado"));
 
 
+<<<<<<< HEAD
 
 function promedio(numeros) {
     let suma = 0;
@@ -240,3 +233,12 @@ function calcularPromedio() {
     document.getElementById("resultadoPromedio").innerText =
         "El promedio es: " + resultado;
 }
+
+function productosCaros() {
+  const caros = productos
+    .filter(p => p.precio > 50)
+    .map(p => p.nombre);
+
+  document.getElementById("resultado").innerText = caros.join(", ");
+}
+
