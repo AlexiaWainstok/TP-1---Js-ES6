@@ -118,7 +118,7 @@ function descripcionUsuario() {
     `${usuario.nombre} tiene ${usuario.edad} años`;
 }
 
-function activarUsuario() {//NO FUNCIONA
+function activarUsuario() {
   
   const usuario = {
     nombre: document.getElementById("nombreInput2").value,
@@ -164,6 +164,12 @@ const usuarios = [
 
 function mostrarNombres() {
 console.log(usuarios.map(u => u.nombre))
+}
+
+function mostrarNombres() {
+  const nombres = usuarios.map(u => u.nombre);
+
+    document.getElementById("resultado").textContent = nombres;
 }
 
 
