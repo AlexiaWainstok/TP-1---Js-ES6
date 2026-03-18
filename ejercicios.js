@@ -132,14 +132,29 @@ function activarUsuario() {
     `${usuario.nombre} ahora está activo`;
 } 
 
-function precioTotal(productos) {
+
+var productos = [];
+
+function agregarProducto() {
+    let nombre = document.getElementById("nombre").value;
+    let precio = Number(document.getElementById("precio").value);
+
+    let producto = { nombre: nombre, precio: precio };
+
+    productos.push(producto);
+
+    document.getElementById("listaProductos").innerHTML += 
+        "<li>" + producto.nombre + " - $" + producto.precio + "</li>";
+}
+
+function precioTotal() {
     let total = 0;
 
     for (let producto of productos) {
         total += producto.precio;
     }
 
-    console.log(`El precio total es: ${total}`);
+    document.getElementById("resultadoP").innerText = "El precio total es: " + total;
 }
 
 
@@ -183,17 +198,23 @@ function copiarProductoConStock(producto) {
 }
 
 
-function buscarProducto(productos, nombre) {
+function buscarProducto(productosEjemplo, nombre) {
 return productos.find(p => p.nombre === nombre);
 }
 
+<<<<<<< HEAD
 const productos = [
 { nombre: "Mouse", precio: 10 },
 { nombre: "Teclado", precio: 200 },
+=======
+const productosEjemplo = [
+{ nombre: "Mouse", precio: 1000 },
+{ nombre: "Teclado", precio: 2000 },
+>>>>>>> 4292e7fa55882c24658723afad38a9aca90270da
 { nombre: "Monitor", precio: 5000 }
 ];
 
-console.log(buscarProducto(productos, "Teclado"));
+console.log(buscarProducto(productosEjemplo, "Teclado"));
 
 
 function productosCaros() {
