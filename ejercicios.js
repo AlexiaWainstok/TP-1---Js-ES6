@@ -133,15 +133,18 @@ function activarUsuario() {
 } 
 
 
-let productos = [];
+var productos = [];
 
 function agregarProducto() {
     let nombre = document.getElementById("nombre").value;
     let precio = Number(document.getElementById("precio").value);
 
-    productos.push({ nombre: nombre, precio: precio });
+    let producto = { nombre: nombre, precio: precio };
 
-    console.log(productos);
+    productos.push(producto);
+
+    document.getElementById("listaProductos").innerHTML += 
+        "<li>" + producto.nombre + " - $" + producto.precio + "</li>";
 }
 
 function precioTotal() {
@@ -151,7 +154,7 @@ function precioTotal() {
         total += producto.precio;
     }
 
-    console.log("El precio total es: " + total);
+    document.getElementById("resultadoP").innerText = "El precio total es: " + total;
 }
 
 
@@ -203,16 +206,16 @@ copiarProductoConStock({ nombre: "Notebook", precio: 1000 });
 
 
 
-function buscarProducto(productos, nombre) {
+function buscarProducto(productosEjemplo, nombre) {
 return productos.find(p => p.nombre === nombre);
 }
 
-const productos = [
+const productosEjemplo = [
 { nombre: "Mouse", precio: 1000 },
 { nombre: "Teclado", precio: 2000 },
 { nombre: "Monitor", precio: 5000 }
 ];
 
-console.log(buscarProducto(productos, "Teclado"));
+console.log(buscarProducto(productosEjemplo, "Teclado"));
 
 
