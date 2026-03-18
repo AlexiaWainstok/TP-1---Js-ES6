@@ -197,33 +197,31 @@ function copiarProductoConStock(producto) {
         `Producto: ${nuevoProducto.nombre}, Precio: ${nuevoProducto.precio}, Stock: ${nuevoProducto.stock}`;
 }
 
-
-function buscarProducto(productosEjemplo, nombre) {
-return productos.find(p => p.nombre === nombre);
-}
-
-<<<<<<< HEAD
-const productos = [
-{ nombre: "Mouse", precio: 10 },
-{ nombre: "Teclado", precio: 200 },
-=======
 const productosEjemplo = [
 { nombre: "Mouse", precio: 1000 },
 { nombre: "Teclado", precio: 2000 },
->>>>>>> 4292e7fa55882c24658723afad38a9aca90270da
 { nombre: "Monitor", precio: 5000 }
 ];
 
-console.log(buscarProducto(productosEjemplo, "Teclado"));
+function buscarProducto() {
+  const nombreBuscado = document.getElementById("NOMBRE").value;
 
+  const producto = productosEjemplo.find(p => p.nombre === nombreBuscado);
+
+  document.getElementById("resultado").innerText =
+    producto
+      ? `Producto: ${producto.nombre}, Precio: ${producto.precio}`
+      : "Producto no encontrado";
+}
 
 function productosCaros() {
-  const caros = productos
+  const caros = productosEjemplo
     .filter(p => p.precio > 50)
     .map(p => p.nombre);
 
   document.getElementById("resultado").innerText = caros.join(", ");
 }
+
 
 
 
