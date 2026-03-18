@@ -112,7 +112,6 @@ function descripcionUsuario() {
   const usuario = {
     nombre: document.getElementById("nombreInput1").value,
     edad: Number(document.getElementById("edadInput").value),
-    activo: document.getElementById("activoInput").value === "true"
   }
 
   document.getElementById("resultado").textContent =
@@ -124,13 +123,13 @@ function activarUsuario() {//NO FUNCIONA
   const usuario = {
     nombre: document.getElementById("nombreInput2").value,
     edad: Number(document.getElementById("edadInput2").value),
-    activo: document.getElementById("activoInput1").value === "true"
+    activo: false
   };
 
   usuario.activo = true;
 
   document.getElementById("resultado").textContent =
-    `${usuario.nombre} ahora está activo: ${usuario.activo}`;
+    `${usuario.nombre} ahora está activo`;
 } 
 
 
