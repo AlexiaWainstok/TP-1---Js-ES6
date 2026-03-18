@@ -197,14 +197,7 @@ function copiarProductoConStock(producto) {
         `Producto: ${nuevoProducto.nombre}, Precio: ${nuevoProducto.precio}, Stock: ${nuevoProducto.stock}`;
 }
 
-<<<<<<< HEAD
 
-function buscarProducto(productosEjemplo, nombre) {
-return productos.find(p => p.nombre === nombre);
-}
-
-=======
->>>>>>> f029bf9df39e2bdeb463a0addbb8cf3caed25a1a
 const productosEjemplo = [
 { nombre: "Mouse", precio: 1000 },
 { nombre: "Teclado", precio: 2000 },
@@ -222,7 +215,7 @@ function buscarProducto() {
       : "Producto no encontrado";
 }
 
-<<<<<<< HEAD
+
 
 function promedio(numeros) {
     let suma = 0;
@@ -253,9 +246,3 @@ function productosCaros() {
   document.getElementById("resultado").innerText = caros.join(", ");
 }
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> f029bf9df39e2bdeb463a0addbb8cf3caed25a1a

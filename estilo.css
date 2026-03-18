@@ -1,0 +1,70 @@
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #e1bee7);
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Inputs */
+input {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 300px;
+}
+
+/* Botones */
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #7b1fa2, #512da8);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #6a1b9a, #4527a0);
+  transform: scale(1.05);
+}
+
+/* Resultados */
+p {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px auto 20px;
+  width: 80%;
+  max-width: 350px;
+  border: 1px solid #ddd;
+}
+
+/* Lista */
+ul {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  list-style: none;
+  width: 80%;
+  max-width: 350px;
+  margin: 10px auto;
+}
+
+li {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Títulos */
+h2 {
+  margin-top: 20px;
+  color: #4a148c;
+}
