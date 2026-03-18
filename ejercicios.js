@@ -219,3 +219,24 @@ const productosEjemplo = [
 console.log(buscarProducto(productosEjemplo, "Teclado"));
 
 
+
+function promedio(numeros) {
+    let suma = 0;
+
+    for (let num of numeros) {
+        suma += num;
+    }
+
+    return suma / numeros.length;
+}
+
+function calcularPromedio() {
+    let input = document.getElementById("numerosPromedio").value;
+
+    let numeros = input.split(",").map(n => Number(n.trim()));
+
+    let resultado = promedio(numeros);
+
+    document.getElementById("resultadoPromedio").innerText =
+        "El promedio es: " + resultado;
+}
