@@ -133,14 +133,26 @@ function activarUsuario() {//NO FUNCIONA
     `${usuario.nombre} ahora está activo: ${usuario.activo}`;
 } 
 
-function precioTotal(productos) {
+
+let productos = [];
+
+function agregarProducto() {
+    let nombre = document.getElementById("nombre").value;
+    let precio = Number(document.getElementById("precio").value);
+
+    productos.push({ nombre: nombre, precio: precio });
+
+    console.log(productos);
+}
+
+function precioTotal() {
     let total = 0;
 
     for (let producto of productos) {
         total += producto.precio;
     }
 
-    console.log(`El precio total es: ${total}`);
+    console.log("El precio total es: " + total);
 }
 
 
